@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -8,6 +7,7 @@ import {
   Platform,
   Button,
   SafeAreaView,
+  StatusBar,
 } from "react-native";
 
 export default function App() {
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Platform.OS === "android" ? "#fff" : "dodgerblue",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
