@@ -8,21 +8,26 @@ import {
   Button,
   SafeAreaView,
   StatusBar,
+  Dimensions,
 } from "react-native";
 
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
+
 export default function App() {
+  const { landscape } = useDeviceOrientation();
+
   return (
     <SafeAreaView style={[styles.container]}>
-      <Text numberOfLines={1}>Hello React Native</Text>
-
-      {/* <Image
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-          }} */}
-
-      <Button title="Click Me" />
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: "100%",
+          height: landscape ? "100%" : "30%",
+        }}
+      />
     </SafeAreaView>
   );
 }
